@@ -48,7 +48,7 @@ function loadEndScreen() {
     // Set up the play again button
     document.getElementById('play-again-btn').addEventListener('click', () => {
         // Redirect back to the main game page
-        window.location.href = 'welcome.html';
+        window.location.href = 'index.html';
     });
 }
 
