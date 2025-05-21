@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="64x64" href="images/favicon.png">
+    <link rel="apple-touch-icon" sizes="64x64" href="images/icon.png">
+    <title>Trivia Game</title>
+    <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="background-image" id="background-image"></div>
+        <!-- <div class="money-effect" id="money-effect"></div> -->
+        
+        <div class="game-content">
+            <div class="game-header">
+                <!-- Home button removed -->
+            </div>
+            
+            <!-- <img src="millionaire-logo.jpeg" alt="Trivia Game" class="game-logo"> -->
+            
+            <div class="question-container">
+                <p class="question-text" id="question-text">How much weighs one million dollars in twenty-dollar bills?</p>
+                <p class="message-text" id="message-text" style="display: none;"></p>
+            </div>
+            
+            <div class="options-container" id="options-container">
+                <!-- Options will be inserted here by JavaScript -->
+            </div>
+        </div>
+        
+        <div class="host-container" id="host-container" style="display: none;">
+            <img src="" alt="Host Image" class="host-image" id="host-image">
+            <!-- <div class="speech-bubble" id="speech-bubble">And this is the correct answer!</div> -->
+        </div>
+        
+        <div class="mobile-host-container" id="mobile-host-container" style="display: none;">
+            <img src="" alt="Host Image" class="mobile-host-image" id="mobile-host-image" style="visibility: hidden;">
+            <!-- <div class="speech-bubble" id="speech-bubble">And this is the correct answer!</div> -->
+        </div>
+
+    </div>
+    
+    <script src="js/game.js"></script>
+
+</body>
+</html>
