@@ -52,7 +52,6 @@ function loadEndScreen() {
     });
 }
 
-// Function to display the appropriate end screen based on score
 function displayEndScreen(endScreens, score) {
     if (Array.isArray(endScreens)) {
         // Sort end screens by minimum score in descending order
@@ -60,9 +59,19 @@ function displayEndScreen(endScreens, score) {
             (b.min_score || 0) - (a.min_score || 0)
         );
         
+        // Debug output to help diagnose the issue
+        console.log("Player score:", score);
+        console.log("Sorted end screens:", sortedEndScreens);
+        
         // Find the first end screen where the score is >= min_score
+        let matchFound = false;
         for (const endScreen of sortedEndScreens) {
-            if (score >= (endScreen.min_score || 0)) {
+            const minScore = endScreen.min_score || 0;
+            console.log(`Checking if ${score} >= ${minScore}`);
+            
+            if (score >= minScore) {
+                console.log("Match found:", endScreen.title);
+                
                 // Set title and message
                 document.getElementById('result-title').innerText = endScreen.title || `Final Score: ${score}`;
                 document.getElementById('result-message').innerText = endScreen.message || `You earned ${score} points!`;
@@ -89,15 +98,23 @@ function displayEndScreen(endScreens, score) {
                     createFallingMoney();
                 }
                 
-                // Early return once we found the matching end screen
-                return;
+                matchFound = true;
+                break; // Exit the loop once we found a match
             }
         }
+        
+        if (!matchFound) {
+            // Default end screen if no matching end screen was found
+            console.log("No matching end screen found");
+            document.getElementById('result-title').innerText = `Final Score: ${score}`;
+            document.getElementById('result-message').innerText = `You earned a total of ${score} points!`;
+        }
+    } else {
+        // Handle case where endScreens is not an array
+        console.error("End screens data is not an array");
+        document.getElementById('result-title').innerText = `Final Score: ${score}`;
+        document.getElementById('result-message').innerText = `You earned a total of ${score} points!`;
     }
-    
-    // Default end screen if no matching end screen was found
-    document.getElementById('result-title').innerText = `Final Score: ${score}`;
-    document.getElementById('result-message').innerText = `You earned a total of ${score} points!`;
 }
 
 // Initialize when the page loads

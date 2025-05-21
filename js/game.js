@@ -142,8 +142,14 @@ function selectAnswer(element, score, optionText) {
     // Add selected class to the chosen option
     element.classList.add('selected-option');
     
+    // Log the selected option's score before adding to total
+    console.log(`Selected option: "${optionText}" with score: ${score}`);
+
     // Add the score
     totalScore += score;
+
+    // Log the updated total score
+    console.log(`New total score: ${totalScore}`);
     
     // Show message with custom or default text
     const question = questions[currentQuestionIndex];
