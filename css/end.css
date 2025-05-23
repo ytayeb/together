@@ -134,6 +134,12 @@ body {
     direction: rtl;
 }
 
+#rec_title {
+    display: block;        
+    width: 100%;           
+    text-align: right;
+}
+
 .play-again-btn {
     background-color: #5dbcd2;
     color: #09264b;
@@ -182,7 +188,7 @@ body {
     object-fit: contain;
 }
 
-@media (min-width: 56.3125rem) { /* 901px */
+@media (min-width: 901px) {
     .host-container {
         display: block;
     }
@@ -193,7 +199,7 @@ body {
 }
 
 /* Adjustments for Small Screens */
-@media (max-width: 56.25rem) { /* 900px */
+@media (max-width: 900px) { 
 
     .game-header {
         display: none;
@@ -239,7 +245,7 @@ body {
     }
 }
 
-@media (max-width: 37.5rem) { /* 600px */
+@media (max-width: 600px) { 
     .game-header {
         display: none;
     }
@@ -277,7 +283,7 @@ body {
 }
 
 /* Additional breakpoint for very small screens */
-@media (max-width: 30rem) { /* 480px */
+@media (max-width: 480px) { 
     .result-title {
         font-size: 1.25rem; /* 20px */
     }

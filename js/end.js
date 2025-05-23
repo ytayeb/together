@@ -43,7 +43,7 @@ function loadEndScreen() {
             // Display fallback message
             document.getElementById('result-title').innerText = 'Game Complete!';
             document.getElementById('result-message').innerText = `Final score: ${score} points!`;
-            document.getElementById('result-recommendation').innerText = ''; // Clear recommendation on error
+            document.getElementById('result-recommendation').innerText = ''; 
         });
     
     // Set up the play again button
@@ -78,10 +78,11 @@ function displayEndScreen(endScreens, score) {
                 document.getElementById('result-message').innerText = endScreen.message || `You earned ${score} points!`;
                 
                 // Set recommendation if available
+                rec_title = "<span id='rec_title'>המלצה:</span>";
                 if (endScreen.recommendation) {
-                    document.getElementById('result-recommendation').innerText = endScreen.recommendation;
+                    document.getElementById('result-recommendation').innerHTML = rec_title + endScreen.recommendation;
                 } else {
-                    document.getElementById('result-recommendation').innerText = '';
+                    document.getElementById('result-recommendation').innerHTML = '';
                 }
 
                 // Set background if specified
@@ -122,7 +123,7 @@ function displayEndScreen(endScreens, score) {
         console.error("End screens data is not an array");
         document.getElementById('result-title').innerText = `Final Score: ${score}`;
         document.getElementById('result-message').innerText = `You earned a total of ${score} points!`;
-        document.getElementById('result-recommendation').innerText = ''; // Clear recommendation if data is invalid
+        document.getElementById('result-recommendation').innerHTML = ''; // Clear recommendation if data is invalid
     }
 }
 
