@@ -73,7 +73,7 @@ function initGame() {
         })
         .catch(error => {
             console.error('Error loading data:', error);
-            document.getElementById('question-text').innerText = 'Error loading game data. Please try again.';
+            document.getElementById('question-text').innerHTML = 'Error loading game data. Please try again.';
         });
 }
 
@@ -85,7 +85,7 @@ function showQuestion() {
     }
 
     let question = questions[currentQuestionIndex];
-    document.getElementById('question-text').innerText = question.question;
+    document.getElementById('question-text').innerHTML = question.question;
     
     // Reset the selected option flag for the new question
     selectedOptionInCurrentQuestion = false;
