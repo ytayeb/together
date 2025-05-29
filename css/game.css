@@ -103,6 +103,8 @@ body {
 
 .question-text span {
     display: block;
+    color: rgb(196, 247, 117);
+    font-size: 1.3em
 }
 
 .message-text {
