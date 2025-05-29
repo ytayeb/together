@@ -112,7 +112,7 @@ body {
     font-family: 'Heebo', sans-serif;
     font-size: 1.2rem; /* 19.2px */
     line-height: 1.5;
-    text-align: center;
+    text-align: right;
     margin: 1rem 0; /* 16px */
     color: #aec6df;
     max-width: 90%;
@@ -124,7 +124,7 @@ body {
 .result-recommendation {
     font-size: 1.2rem; /* 19.2px */
     line-height: 1.5;
-    text-align: center;
+    text-align: right;
     margin: 1rem 0 2rem; /* 16px 0 32px */
     color: #ffe544;
     max-width: 90%;
