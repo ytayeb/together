@@ -17,6 +17,56 @@
     <link rel="apple-touch-icon" sizes="64x64" href="images/icon.png">
     <title>Trivia Game - Welcome</title>
     <link rel="stylesheet" href="css/welcome.css">
+    <style>
+        /* Additional styles for the gender toggle */
+        .gender-toggle {
+            margin: 20px 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            width: 50px;
+            height: 25px;
+            background-color: #ddd;
+            border-radius: 12.5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .toggle-switch.active {
+            background-color: #4CAF50;
+        }
+        
+        .toggle-slider {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 19px;
+            height: 19px;
+            background-color: white;
+            border-radius: 50%;
+            transition: transform 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .toggle-switch.active .toggle-slider {
+            transform: translateX(25px);
+        }
+        
+        .gender-label {
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+        }
+        
+        .gender-label.active {
+            color: #4CAF50;
+        }
+    </style>
 </head>
 <body>
     <div class="welcome-container">
@@ -29,11 +79,22 @@
         <div class="welcome-content">
             
             <div class="welcome-box">
-                <h1 class="welcome-title">בחן את עצמך</h1>
-                <h1 class="welcome-title"> עד כמה אני מקדם שיח </h1>
-                <h1 class="welcome-title-bigger"> מכבד ומאחד?</h1>
+                <!-- Dynamic text content -->
+                <h1 class="welcome-title" id="title-1">בחן את עצמך</h1>
+                <h1 class="welcome-title" id="title-2">עד כמה אני מקדם שיח</h1>
+                <h1 class="welcome-title-bigger" id="title-3">מכבד ומאחד?</h1>
                 <h1 class="welcome-title">5 שאלות</h1>
-                <button id="start-button" class="start-button"> מתחילים </button>
+                <button id="start-button" class="start-button">מתחילים</button>
+                
+                <!-- Gender Toggle -->
+                <div class="gender-toggle">
+                    <span class="gender-label active" id="male-label">זכר</span>
+                    <div class="toggle-switch" id="gender-toggle">
+                        <div class="toggle-slider"></div>
+                    </div>
+                    <span class="gender-label" id="female-label">נקבה</span>
+                </div>
+
             </div>
         </div>
         
@@ -44,7 +105,6 @@
             <img src="images/figures.png" alt="Hosts" class="mobile-host-image">
         </div>
     </div>
-        
     <script src="js/index.js"></script>
 </body>
 </html>

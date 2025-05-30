@@ -5,6 +5,12 @@ let moneyElements = [];
 let selectedOptionInCurrentQuestion = false;
 let endScreenFile = '';
 
+const selectedGender = sessionStorage.getItem('gender') || 'male'; // default to male if not set
+const isFemale = selectedGender === 'female';
+
+// Now you can use `selectedGender` or `isFemale` throughout your game
+console.log('Selected gender:', selectedGender);
+
 // Create falling money effect
 function createFallingMoney() {
     const moneyEffect = document.getElementById('money-effect');
@@ -85,7 +91,8 @@ function showQuestion() {
     }
 
     let question = questions[currentQuestionIndex];
-    document.getElementById('question-text').innerHTML = question.question;
+    const genderSuffix = isFemale ? '_f' : '_m';
+    document.getElementById('question-text').innerHTML = question[`question${genderSuffix}`];
     
     // Reset the selected option flag for the new question
     selectedOptionInCurrentQuestion = false;
@@ -107,10 +114,10 @@ function showQuestion() {
 
     
     let options = [
-        { letter: 'A', text: question.option1, score: question.score1 || 0 },
-        { letter: 'B', text: question.option2, score: question.score2 || 0 },
-        { letter: 'C', text: question.option3, score: question.score3 || 0 },
-        { letter: 'D', text: question.option4, score: question.score4 || 0 }
+        { letter: 'A', text: question[`option1${genderSuffix}`], score: question.score1 || 0 },
+        { letter: 'B', text: question[`option2${genderSuffix}`], score: question.score2 || 0 },
+        { letter: 'C', text: question[`option3${genderSuffix}`], score: question.score3 || 0 },
+        { letter: 'D', text: question[`option4${genderSuffix}`], score: question.score4 || 0 }
     ];
     
     const optionsContainer = document.getElementById('options-container');

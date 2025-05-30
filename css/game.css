@@ -135,6 +135,7 @@ body {
     display: flex;
     align-items: center;
     overflow: hidden;
+    direction: rtl;
 }
 
 .option-item:hover {

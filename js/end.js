@@ -1,3 +1,9 @@
+const selectedGender = sessionStorage.getItem('gender') || 'male';
+const isFemale = selectedGender === 'female';
+const genderSuffix = isFemale ? '_f' : '_m';
+
+console.log('End screen gender:', selectedGender);
+
 // Function to get URL parameters
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
@@ -74,13 +80,13 @@ function displayEndScreen(endScreens, score) {
                 console.log("Match found:", endScreen.title);
                 
                 // Set title and message
-                document.getElementById('result-title').innerText = endScreen.title || `Final Score: ${score}`;
-                document.getElementById('result-message').innerText = endScreen.message || `You earned ${score} points!`;
+                document.getElementById('result-title').innerText = endScreen[`title${genderSuffix}`] || `Final Score: ${score}`;
+                document.getElementById('result-message').innerText = endScreen[`message${genderSuffix}`] || `You earned ${score} points!`;
                 
                 // Set recommendation if available
                 rec_title = "<span id='rec_title'>המלצה:</span>";
-                if (endScreen.recommendation) {
-                    document.getElementById('result-recommendation').innerHTML = rec_title + endScreen.recommendation;
+                if (endScreen[`recommendation${genderSuffix}`]) {
+                    document.getElementById('result-recommendation').innerHTML = rec_title + endScreen[`recommendation${genderSuffix}`];
                 } else {
                     document.getElementById('result-recommendation').innerHTML = '';
                 }
