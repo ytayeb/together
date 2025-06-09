@@ -57,6 +57,12 @@ function loadEndScreen() {
         // Redirect back to the main game page
         window.location.href = 'index.html';
     });
+
+    document.getElementById('logo-btn').addEventListener('click', () => {
+        // Redirect back to the main game page
+        window.location.href = 'https://q4israel.org.il';
+    });
+
 }
 
 function displayEndScreen(endScreens, score) {
